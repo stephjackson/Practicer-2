@@ -16,11 +16,11 @@ export class ItemService {
     .map((res) => res.json());
   }
 
-  createList(list) {
+  createItem(item) {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    this.http.post(`${this.BASE_URL}/list` + token, list)
+    this.http.post(`${this.BASE_URL}/item` + token, item)
     .subscribe(res => res.json())
   }
 

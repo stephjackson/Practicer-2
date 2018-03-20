@@ -1,3 +1,11 @@
-<p>
-  item-form works!
-</p>
+<div class="col-md-8 col-md-offset-2">
+  <h4>Create a New List</h4>
+  <label>Title</label>
+  <input type="text" [(ngModel)]="newItem.itemTitle">
+  <label>Seconds</label>
+  <input type="number" [(ngModel)]="newItem.itemTime">
+  <label>BPM</label>
+  <input type="number" [(ngModel)]="newItem.itemBpm">
+  <button (click)="onSubmit()"> Create List </button>
+</div>
+  
