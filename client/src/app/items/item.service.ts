@@ -16,6 +16,14 @@ export class ItemService {
     .map((res) => res.json());
   }
 
+  getItem(id) {
+    const token = localStorage.getItem('token')
+    ? '?token=' + localStorage.getItem('token')
+    : '';
+    return this.http.get(`${this.BASE_URL}/item/${id}/` + token)
+    .map((res) => res.json())
+  }
+
   createItem(item) {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')

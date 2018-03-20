@@ -20,7 +20,9 @@ import { YouritemsComponent } from './items/youritems/youritems.component';
 import { ItemFormComponent } from './items/item-form/item-form.component';
 import { ItemService } from './items/item.service';
 import { ListDetailsComponent } from './lists/list-details/list-details.component';
-import { UnusedItemsComponent } from './lists/unused-items/unused-items.component'
+import { UnusedItemsComponent } from './lists/unused-items/unused-items.component';
+import { ItemDetailsComponent } from './items/item-details/item-details.component';
+import { ItemStatsComponent } from './items/item-stats/item-stats.component'
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { UnusedItemsComponent } from './lists/unused-items/unused-items.componen
     YouritemsComponent,
     ItemFormComponent,
     ListDetailsComponent,
-    UnusedItemsComponent
+    UnusedItemsComponent,
+    ItemDetailsComponent,
+    ItemStatsComponent
   ],
   imports: [
     BrowserModule,

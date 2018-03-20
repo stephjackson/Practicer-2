@@ -4,6 +4,7 @@ var jwt = require('jsonwebtoken');
 
 var User = require('../models/user');
 var List = require('../models/list');
+var Item = require('../models/item')
 
 router.use('/', function (req, res, next) {
   jwt.verify(req.query.token, 'secret', function (err, decoded) {
@@ -33,6 +34,40 @@ router.get('/', function (req, res, next) {
         obj: user.lists
       });
     });
+});
+
+router.get('/:listid', function (req, res, next) {
+  var decoded = jwt.decode(req.query.token);
+  List.findById(req.params.listid)
+    .populate('items')
+    .exec(function (err, list) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      res.status(200).json({
+        message: 'Success',
+        obj: list
+      });
+    });
+});
+
+router.get('/:listid/excludes', function (req, res, next) {
+  var decoded = jwt.decode(req.query.token);
+  Item.find({ lists: { $ne: req.params.listid } }, (err, item) => {
+    if (err) {
+      return res.status(500).json({
+        title: 'An error occurred',
+        error: err
+      });
+    }
+    res.status(200).json({
+      message: 'Success',
+      obj: item
+    });
+  })
 });
 
 router.post('/', function (req, res, next) {

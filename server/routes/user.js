@@ -24,7 +24,6 @@ router.post('/', function (req, res, next) {
 });
 
 router.post('/signin', function (req, res, next) {
-  console.log(req.body.username);
   User.findOne({ username: req.body.username }, function (err, user) {
     if (err) {
       return res.status(500).json({

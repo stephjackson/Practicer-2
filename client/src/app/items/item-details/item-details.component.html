@@ -1,0 +1,10 @@
+<h1> Stats: {{ item.title }} </h1>
+<h1> Time: {{ item.time }} </h1>
+<h1> BPM: {{ item.bpm }} </h1>
+<h1>Stats:</h1>
+<ul>
+  <li *ngFor = "let stat of item.stats">
+    <h3>Date: {{ stat.date | date: 'short' }}</h3>
+    <h3>BPM: {{ stat.bpm }}</h3>
+  </li>
+</ul>

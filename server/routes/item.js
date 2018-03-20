@@ -193,8 +193,8 @@ router.delete('/:id', (req, res, next) => {
         if (err) { res.status(500).json({ message: 'Error deleting list item from list db array' }) };
         res.json({
           message: "Item has been removed."
-        })
-      })
+        });
+      });
     });
   });
 });
