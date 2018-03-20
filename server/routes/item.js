@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
+var mongoose = require('mongoose');
 
 var User = require('../models/user');
 var List = require('../models/list');
@@ -197,5 +198,51 @@ router.delete('/:id', (req, res, next) => {
     });
   });
 });
+
+router.put('/:itemid/track', (req, res, next) => {
+  var decoded = jwt.decode(req.query.token);
+
+  if (!mongoose.Types.ObjectId.isValid(req.params.itemid)) {
+    res.status(400).json({ message: "Specified id is not valid" });
+    return;
+  }
+
+  var itemBpm = req.body.itemBpm;
+  if (req.body.completed == 1) {
+    itemBpm++;
+  } else if (req.body.completed == 0) {
+    itemBpm = Math.round(itemBpm * 0.9);
+  } else {
+    res.status(400).json({ message: "Complete variable is broken. " })
+    return;
+  }
+
+  const updates = {
+    bpm: itemBpm
+  }
+
+  const stats = {
+    bpm: itemBpm,
+    date: new Date()
+  }
+
+  Item.findByIdAndUpdate(req.params.itemid, { '$push': { 'stats': stats } }, err => {
+    if (err) {
+      res.json(err);
+      return;
+    }
+
+    Item.findByIdAndUpdate(req.params.itemid, updates, err => {
+      if (err) {
+        res.json(err);
+        return;
+      }
+
+      res.json({
+        message: "List item updated successfully!"
+      })
+    })
+  })
+})
 
 module.exports = router;
