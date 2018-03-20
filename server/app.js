@@ -9,7 +9,8 @@ var cors = require('cors');
 
 var index = require('./routes/index');
 var userRoutes = require('./routes/user');
-var listRoutes = require('./routes/list')
+var listRoutes = require('./routes/list');
+var itemRoutes = require('./routes/item');
 
 var app = express();
 mongoose.connect('mongodb://localhost:27017/sesh');
@@ -42,6 +43,7 @@ app.use(
 
 app.use('/user', userRoutes);
 app.use('/list', listRoutes);
+app.use('/item', itemRoutes);
 app.use('/', index);
 
 // catch 404 and forward to error handler

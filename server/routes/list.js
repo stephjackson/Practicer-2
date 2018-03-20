@@ -20,7 +20,7 @@ router.use('/', function (req, res, next) {
 router.get('/', function (req, res, next) {
   var decoded = jwt.decode(req.query.token);
   User.findById(decoded.user._id)
-    .populate('lists')
+    .populate('List')
     .exec(function (err, user) {
       if (err) {
         return res.status(500).json({

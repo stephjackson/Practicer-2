@@ -13,6 +13,11 @@ const ItemSchema = new Schema({
   bpm: {
     type: Number
   },
+  user: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
+  },
   lists: [{
     type: Schema.Types.ObjectId,
     ref: 'List'
