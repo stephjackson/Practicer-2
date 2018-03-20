@@ -1,12 +1,14 @@
 <div class="col-md-8 col-md-offset-2">
   <h1> Items on this list. </h1>
-    <div>
-      <div *ngFor="let item of items.items">
-        <h3> {{ item.title }} </h3>
-        <h3> {{ item.time }} seconds </h3>
-        <h3> {{ item.bpm }} bpm </h3>
-        <a [routerLink]="[item._id]">View Details</a>
-        <button (click)="deleteItem(item._id)">Delete Item</button>
-      </div>
+  <div>
+    <div *ngFor="let item of items.items">
+      <h3> {{ item.title }} </h3>
+      <h3> {{ item.time }} seconds </h3>
+      <h3> {{ item.bpm }} bpm </h3>
+      <a [routerLink]="[item._id]">View Details</a>
+      <button (click)="deleteItem(item._id)">Delete Item</button>
     </div>
+  </div>
+  <hr>
+  <app-unused-items></app-unused-items>
 </div>

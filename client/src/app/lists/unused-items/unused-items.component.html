@@ -1,0 +1,10 @@
+<h1> Add a practice item? </h1>
+<div>
+  <div *ngFor="let item of items">
+    <h3> {{ item.title }} </h3>
+    <h3> {{ item.time }} seconds </h3>
+    <h3> {{ item.bpm }} bpm </h3>
+    <a [routerLink]="[item._id]">View Details</a>
+    <button (click)="deleteItem(item._id)">Delete Item</button>
+  </div>
+</div>

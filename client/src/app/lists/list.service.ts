@@ -109,6 +109,14 @@ export class ListService {
     .map((res) => res.json())
   }
 
+  getItemsNotInList(id) {
+    const token = localStorage.getItem('token')
+    ? '?token=' + localStorage.getItem('token')
+    : '';
+    return this.http.get(`${this.BASE_URL}/list/${id}/excludes` + token)
+    .map((res) => res.json())
+  }
+
   deleteList(id) {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
