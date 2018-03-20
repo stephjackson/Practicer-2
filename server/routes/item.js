@@ -160,4 +160,42 @@ router.patch('/remove/:listid/:itemid', (req, res, next) => {
   })
 })
 
+router.delete('/:id', (req, res, next) => {
+  var decoded = jwt.decode(req.query.token);
+  Item.findById(req.params.id, (err, item) => {
+    if (err) {
+      return res.status(500).json({
+        title: 'An error occurred',
+        error: err
+      });
+    }
+    if (!item) {
+      return res.status(500).json({
+        title: 'No Item Found!',
+        error: { message: 'Item not found' }
+      });
+    }
+    if (item.user != decoded.user._id) {
+      return res.status(401).json({
+        title: 'Not Authenticated',
+        error: { message: 'Users do not match' }
+      });
+    }
+    item.remove(function (err, result) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      List.updateMany({ items: req.params.id }, { '$pull': { 'items': req.params.id } }, err => {
+        if (err) { res.status(500).json({ message: 'Error deleting list item from list db array' }) };
+        res.json({
+          message: "Item has been removed."
+        })
+      })
+    });
+  });
+});
+
 module.exports = router;
