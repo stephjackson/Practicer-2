@@ -7,11 +7,13 @@ import { AUTH_ROUTES } from "./auth/auth.routes";
 import { ITEM_ROUTES } from './items/item.routes';
 import { LIST_ROUTES } from './lists/list.routes';
 import { ItemDetailsComponent } from "./items/item-details/item-details.component";
+import { SessionViewComponent } from "./lists/session-view/session-view.component";
 
 const APP_ROUTES: Routes = [
     { path: '', redirectTo: '/auth/signin', pathMatch: 'full' },
     { path: 'lists', component: ListsComponent },
     { path: 'lists/:id', component: ListDetailsComponent },
+    { path: 'lists/:id/session', component: SessionViewComponent },
     { path: 'auth', component: AuthenticationComponent, children: AUTH_ROUTES },
     { path: 'items', component: ItemsComponent },
     { path: 'items/:id', component: ItemDetailsComponent }

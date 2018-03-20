@@ -3,7 +3,8 @@
     <div>
       <div *ngFor="let list of lists">
         <h3> {{ list.title }} </h3>
-        <a [routerLink]="[list._id]">View Details</a>
+        <a [routerLink]="[list._id, 'session']">Start practicing!</a>
+        <a [routerLink]="[list._id]">View Schedule Details</a>
         <button (click)="deleteList(list._id)">Delete Item</button>
       </div>
     </div>

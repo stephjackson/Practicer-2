@@ -22,7 +22,8 @@ import { ItemService } from './items/item.service';
 import { ListDetailsComponent } from './lists/list-details/list-details.component';
 import { UnusedItemsComponent } from './lists/unused-items/unused-items.component';
 import { ItemDetailsComponent } from './items/item-details/item-details.component';
-import { ItemStatsComponent } from './items/item-stats/item-stats.component'
+import { ItemStatsComponent } from './items/item-stats/item-stats.component';
+import { SessionViewComponent } from './lists/session-view/session-view.component'
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ItemStatsComponent } from './items/item-stats/item-stats.component'
     ListDetailsComponent,
     UnusedItemsComponent,
     ItemDetailsComponent,
-    ItemStatsComponent
+    ItemStatsComponent,
+    SessionViewComponent
   ],
   imports: [
     BrowserModule,
