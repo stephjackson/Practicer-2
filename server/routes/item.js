@@ -22,7 +22,7 @@ router.use('/', function (req, res, next) {
 router.get('/', function (req, res, next) {
   var decoded = jwt.decode(req.query.token);
   Item.find()
-    .populate('List')
+    .populate('lists')
     .exec(function (err, items) {
       if (err) {
         return res.status(500).json({
