@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
 import { ItemsComponent } from './items/items/items.component';
 import { YouritemsComponent } from './items/youritems/youritems.component';
 import { ItemFormComponent } from './items/item-form/item-form.component';
+import { ItemService } from './items/item.service'
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { ItemFormComponent } from './items/item-form/item-form.component';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [AuthService, ListService],
+  providers: [AuthService, ListService, ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
