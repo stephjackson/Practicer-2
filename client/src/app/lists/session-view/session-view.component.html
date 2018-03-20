@@ -1,3 +1,9 @@
 <div class="col-md-8 col-md-offset-2">
-  <p>Session view works!</p>
+  <div class="row" *ngFor="let item of items.items">
+    <h3>{{ item.title }}</h3>
+    <h3>{{ item.bpm }}</h3>
+    <h3>{{ item.seconds }}</h3>
+    <button (click)="trackStatYes(listId, item._id)">I successfully played this!</button>
+    <button (click)="trackStatNo(listId, item._id)">No luck! Keep at it!</button>
+  </div>
 </div>
