@@ -10,7 +10,7 @@ import { LIST_ROUTES } from './lists/list.routes';
 const APP_ROUTES: Routes = [
     { path: '', redirectTo: '/auth/signin', pathMatch: 'full' },
     { path: 'lists', component: ListsComponent },
-    { path: 'lists/:id', component: ListDetailsComponent }
+    { path: 'lists/:id', component: ListDetailsComponent },
     { path: 'auth', component: AuthenticationComponent, children: AUTH_ROUTES },
     { path: 'items', component: ItemsComponent, children: ITEM_ROUTES }
 ];
