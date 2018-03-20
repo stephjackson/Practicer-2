@@ -18,7 +18,8 @@ import { HeaderComponent } from './header/header.component';
 import { ItemsComponent } from './items/items/items.component';
 import { YouritemsComponent } from './items/youritems/youritems.component';
 import { ItemFormComponent } from './items/item-form/item-form.component';
-import { ItemService } from './items/item.service'
+import { ItemService } from './items/item.service';
+import { ListDetailsComponent } from './lists/list-details/list-details.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ItemService } from './items/item.service'
     HeaderComponent,
     ItemsComponent,
     YouritemsComponent,
-    ItemFormComponent
+    ItemFormComponent,
+    ListDetailsComponent
   ],
   imports: [
     BrowserModule,
