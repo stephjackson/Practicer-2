@@ -117,6 +117,22 @@ export class ListService {
     .map((res) => res.json())
   }
 
+  addItemToList(listid, itemid) {
+    const token = localStorage.getItem('token')
+    ? '?token=' + localStorage.getItem('token')
+    : '';
+    this.http.patch(`${this.BASE_URL}/item/add/${listid}/${itemid}` + token, {})
+    .subscribe(res => res.json())
+  }
+
+  removeItemFromList(listid, itemid) {
+    const token = localStorage.getItem('token')
+    ? '?token=' + localStorage.getItem('token')
+    : '';
+    this.http.patch(`${this.BASE_URL}/item/remove/${listid}/${itemid}` + token, {})
+    .subscribe(res => res.json())
+  }
+
   deleteList(id) {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')

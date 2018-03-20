@@ -9,6 +9,7 @@ import { ListService } from '../list.service';
   styleUrls: ['./list-details.component.css']
 })
 export class ListDetailsComponent implements OnInit {
+  listId;
   items;
 
   constructor(private listService: ListService, private route: ActivatedRoute) {}
@@ -18,14 +19,15 @@ export class ListDetailsComponent implements OnInit {
       this.listService.getItemsInList(params['id'])
       .subscribe(
         (res) => {
+          this.listId = params['id'];
           this.items = res.obj;
         },
         (err) => console.error(err))
       })
   }
 
-  // deleteItem(id) {
-  //   this.listService.deleteItem(id);
-  //   location.reload();
-  // }
+  removeItemFromList(listid, itemid) {
+    this.listService.removeItemFromList(listid, itemid);
+    location.reload();
+  }
 }

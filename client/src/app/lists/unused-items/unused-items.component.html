@@ -5,6 +5,6 @@
     <h3> {{ item.time }} seconds </h3>
     <h3> {{ item.bpm }} bpm </h3>
     <a [routerLink]="[item._id]">View Details</a>
-    <button (click)="deleteItem(item._id)">Delete Item</button>
+    <button (click)="addItemToList(listId, item._id)">Add Item</button>
   </div>
 </div>
