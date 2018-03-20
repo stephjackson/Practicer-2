@@ -15,6 +15,9 @@ import { routing } from "./app.routing";
 import { AuthService } from "./auth/auth.service";
 import { ListService } from "./lists/list.service";
 import { HeaderComponent } from './header/header.component';
+import { ItemsComponent } from './items/items/items.component';
+import { YouritemsComponent } from './items/youritems/youritems.component';
+import { ItemFormComponent } from './items/item-form/item-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { HeaderComponent } from './header/header.component';
     YourlistsComponent,
     AuthenticationComponent,
     ListsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ItemsComponent,
+    YouritemsComponent,
+    ItemFormComponent
   ],
   imports: [
     BrowserModule,
