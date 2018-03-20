@@ -20,8 +20,8 @@ export class YouritemsComponent implements OnInit {
       (err) => console.error(err))
   }
 
-  deleteList(id) {
-    this.itemService.deleteList(id);
+  deleteItem(id) {
+    this.itemService.deleteItem(id);
     location.reload();
   }
 }

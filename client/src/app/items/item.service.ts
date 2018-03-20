@@ -32,11 +32,11 @@ export class ItemService {
     .map((res) => res.json())
   }
 
-  deleteList(id) {
+  deleteItem(id) {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    this.http.delete(`${this.BASE_URL}/list/${id}` + token)
+    this.http.delete(`${this.BASE_URL}/item/${id}` + token)
     .subscribe(res => res.json())
   }
 }
