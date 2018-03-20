@@ -24,4 +24,9 @@ export class SessionViewComponent implements OnInit {
         (err) => console.error(err))
       })
   }
+
+  statTrack(id, bpm, completed) {
+    this.listService.statTrack(id, bpm, completed);
+    location.reload();
+  }
 }

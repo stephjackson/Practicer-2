@@ -3,7 +3,7 @@
     <h3>{{ item.title }}</h3>
     <h3>{{ item.bpm }}</h3>
     <h3>{{ item.seconds }}</h3>
-    <button (click)="trackStatYes(listId, item._id)">I successfully played this!</button>
-    <button (click)="trackStatNo(listId, item._id)">No luck! Keep at it!</button>
+    <button (click)="statTrack(item._id, 1, item.bpm)">I successfully played this!</button>
+    <button (click)="statTrack(item._id, 0, item.bpm)">No luck! Keep at it!</button>
   </div>
 </div>

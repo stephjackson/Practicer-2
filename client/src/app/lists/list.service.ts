@@ -140,4 +140,12 @@ export class ListService {
     this.http.delete(`${this.BASE_URL}/list/${id}` + token)
     .subscribe(res => res.json())
   }
+
+  statTrack(id, completed, bpm) {
+    const token = localStorage.getItem('token')
+    ? '?token=' + localStorage.getItem('token')
+    : '';
+    this.http.put(`${this.BASE_URL}/item/${id}/track/${completed}/${bpm}` + token, {})
+    .subscribe(res => res.json())
+  }
 }
