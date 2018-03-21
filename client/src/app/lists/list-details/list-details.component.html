@@ -1,14 +1,37 @@
-<div class="col-md-8 col-md-offset-2">
-  <h1> Items on this list. </h1>
-  <div>
+<div class="col-12">
+  <h1 class="text-white"> Items on this list. </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-white">Title</th>
+        <th class="text-white">Time</th>
+        <th class="text-white">BPM</th>
+        <th class="text-white">Links</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items.items">
+        <th class="text-white align-middle" scope=row>{{ item.title }}</th>
+        <td class="text-white align-middle"> {{ item.time }} </td>
+        <td class="text-white align-middle"> {{ item.bpm }} </td>
+        <td class="text-white align-middle">
+          <div class="row">
+            <div class="col-lg-6 col-12">
+              <a class="btn btn-crimson btn-block" [routerLink]="['/items', item._id]">Details</a>
+            </div>
+            <div class="col-lg-6 col-12">
+              <button class="btn btn-crimson btn-block" (click)="removeItemFromList(listId, item._id)">Remove</button> 
+            </div>
+          </div>
+        </td>    
+      </tr>
+    </tbody>
+  </table>
     <div *ngFor="let item of items.items">
       <h3> {{ item.title }} </h3>
       <h3> {{ item.time }} seconds </h3>
       <h3> {{ item.bpm }} bpm </h3>
-      <a [routerLink]="['/items', item._id]">View Details</a>
-      <button (click)="removeItemFromList(listId, item._id)">Remove Item</button>
     </div>
-  </div>
   <hr>
   <app-unused-items></app-unused-items>
 </div>
