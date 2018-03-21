@@ -19,11 +19,11 @@
       <button
         class="btn btn-crimson"
         type="submit"
-        [disabled]="!myForm.valid">Submit</button>
+        [disabled]="!myForm.valid">Sign In</button>
     </form>
   </div>
-  <div class="row offset-3 d-lg-none d-block">
-    <form class="col-8" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div class="row offset-1 d-lg-none d-block">
+    <form class="col-10" [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label class="text-white" for="username">Username</label>
         <input
@@ -43,6 +43,6 @@
       <button
         class="btn btn-crimson"
         type="submit"
-        [disabled]="!myForm.valid">Submit</button>
+        [disabled]="!myForm.valid">Sign In</button>
     </form>
   </div>
