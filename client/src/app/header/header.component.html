@@ -1,3 +1,11 @@
-<p>
-  header works!
-</p>
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <a class="navbar-brand text-white">Practicer</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="nav navbar-nav nav-pills">
+        <li class="nav-link" routerLinkActive="active"><a class="text-white" [routerLink]="['/lists']">Practice Sessions</a></li>
+        <li class="nav-link" routerLinkActive="active"><a class="text-white" [routerLink]="['/items']">Exercises</a></li>
+        <li class="nav-link" routerLinkActive="active"><a class="text-white" [routerLink]="['/auth']">Authentication</a></li>
+      </ul>
+    </div>
+</nav>

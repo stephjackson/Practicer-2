@@ -1,0 +1,11 @@
+.navbar {
+  background-color: #941305;
+}
+
+.nav-pills > li.active {
+  background-color: #cc2c11;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+}
