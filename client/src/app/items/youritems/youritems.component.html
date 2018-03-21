@@ -34,4 +34,7 @@
       </tr>
     </tbody>
   </table>
-  <app-item-form></app-item-form>
+  <button class="btn btn-crimson mb-3" (click)="ShowForm()">New exercise</button>
+  <div class="mt-3" *ngIf="showSelected">
+    <app-item-form></app-item-form>
+  </div>

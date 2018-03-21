@@ -8,6 +8,7 @@ import { ItemService } from "../item.service";
 })
 export class YouritemsComponent implements OnInit {
   items;
+  showSelected;
 
   constructor(private itemService: ItemService) {}
 
@@ -15,6 +16,7 @@ export class YouritemsComponent implements OnInit {
     this.itemService.getItems()
     .subscribe(
       (res) => {
+        this.showSelected = false;
         this.items = res.obj;
       },
       (err) => console.error(err))
@@ -23,5 +25,13 @@ export class YouritemsComponent implements OnInit {
   deleteItem(id) {
     this.itemService.deleteItem(id);
     location.reload();
+  }
+
+  ShowForm() {
+      if (this.showSelected === false) {
+          this.showSelected = true;
+      } else {
+          this.showSelected = false;
+      }
   }
 }
