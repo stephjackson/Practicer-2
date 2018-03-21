@@ -1,11 +1,21 @@
 <div class="col-12">
-  <h1> Your Sessions </h1>
-    <div>
-      <div *ngFor="let list of lists">
-        <h3> {{ list.title }} </h3>
-        <a [routerLink]="[list._id, 'session']">Start practicing!</a>
-        <a [routerLink]="[list._id]">View Schedule Details</a>
-        <button (click)="deleteList(list._id)">Delete Item</button>
+  <h1 class="text-white pb-3">Practice Sessions</h1>
+  <div>
+    <div *ngFor="let list of lists">
+      <div class="row">
+        <div class="col-12 col-xl-6 py-2">
+          <h3 class="text-white"> {{ list.title }} </h3>
+        </div>
+        <div class="col-12 col-xl-6 pb-2">
+          <div class="btn-toolbar">
+            <div class="btn-group">
+              <a class="btn btn-crimson" [routerLink]="[list._id, 'session']">Practice!</a>
+              <a class="btn btn-crimson" [routerLink]="[list._id]">Info</a>
+              <button class="btn btn-crimson" (click)="deleteList(list._id)">Delete</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 </div>

@@ -3,14 +3,8 @@ import { ListService } from "../list.service";
 
 @Component({
     selector: 'app-yourlists',
-    // template: `
-    //     <div class="col-md-8 col-md-offset-2">
-    //       <app-list
-    //         [lists]="lists"
-    //         *ngFor="let list of lists"></app-list>
-    //     </div>
-    // `
-    templateUrl: 'yourlists.component.html'
+    templateUrl: 'yourlists.component.html',
+    styleUrls: ['yourlists.component.css']
 })
 export class YourlistsComponent implements OnInit {
   lists;
