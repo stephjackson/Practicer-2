@@ -5,7 +5,9 @@
       <ul class="nav navbar-nav nav-pills">
         <li class="nav-link" routerLinkActive="active"><a class="text-white" [routerLink]="['/lists']">Practice Sessions</a></li>
         <li class="nav-link" routerLinkActive="active"><a class="text-white" [routerLink]="['/items']">Exercises</a></li>
-        <li class="nav-link" routerLinkActive="active"><a class="text-white" [routerLink]="['/auth']">Authentication</a></li>
+        <li class="nav-link" routerLinkActive="active" *ngIf="!isLoggedIn()"><a class="text-white" [routerLink]="['/auth/signup']">Sign Up</a></li>
+        <li class="nav-link" routerLinkActive="active" *ngIf="!isLoggedIn()"><a class="text-white" [routerLink]="['/auth/signin']">Sign In</a></li>
+        <li class="nav-link" routerLinkActive="active" *ngIf="isLoggedIn()"><a class="text-white" (click)="onLogout()">Log Out</a></li>
       </ul>
     </div>
 </nav>
