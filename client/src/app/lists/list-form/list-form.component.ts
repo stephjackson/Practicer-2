@@ -13,7 +13,7 @@ export class ListFormComponent implements OnInit {
 
   constructor(private messageService: ListService, private router: Router) {}
 
-  onSubmit(form: NgForm) {
+  onSubmit() {
     // Create
     this.messageService.createList(this.newList)
     this.router.navigate(['/lists'])

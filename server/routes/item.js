@@ -199,7 +199,7 @@ router.delete('/:id', (req, res, next) => {
   });
 });
 
-router.put('/:itemid/track', (req, res, next) => {
+router.put('/:itemid/track/:completed/:itemBpm', (req, res, next) => {
   var decoded = jwt.decode(req.query.token);
 
   if (!mongoose.Types.ObjectId.isValid(req.params.itemid)) {
@@ -207,10 +207,11 @@ router.put('/:itemid/track', (req, res, next) => {
     return;
   }
 
-  var itemBpm = req.body.itemBpm;
-  if (req.body.completed == 1) {
+  var itemBpm = req.params.itemBpm;
+  console.log(req.params.completed);
+  if (req.params.completed == 1) {
     itemBpm++;
-  } else if (req.body.completed == 0) {
+  } else if (req.params.completed == 0) {
     itemBpm = Math.round(itemBpm * 0.9);
   } else {
     res.status(400).json({ message: "Complete variable is broken. " })
