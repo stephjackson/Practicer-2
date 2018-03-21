@@ -3,3 +3,8 @@ body {
   background-color: black;
   font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
+
+.btn-crimson {
+  background-color: #941305;
+  color: white;
+}
