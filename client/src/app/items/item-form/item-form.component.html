@@ -1,11 +1,47 @@
-<div class="col-md-8 col-md-offset-2">
-  <h4>Create a New List Item</h4>
-  <label>Title</label>
-  <input type="text" [(ngModel)]="newItem.itemTitle">
-  <label>Seconds</label>
-  <input type="number" [(ngModel)]="newItem.itemTime">
-  <label>BPM</label>
-  <input type="number" [(ngModel)]="newItem.itemBpm">
-  <button (click)="onSubmit()"> Create List </button>
+<h4 class="text-white">Create a New Exercise</h4>
+<div class="d-none d-lg-block">
+  <div class="form-group">
+    <label class="text-white">Title</label>
+    <input class="form-control" type="text" [(ngModel)]="newItem.itemTitle">
+  </div>
+  <div class="form-row">
+    <div class="col-1">
+      <p class="text-white text-center py-1">Seconds</p>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+          <input class="form-control" type="number" [(ngModel)]="newItem.itemTime" placeholder="Seconds">
+      </div>
+    </div>
+    <div class="col-1">
+      <p class="text-white text-center py-1">BPM</p>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <input class="form-control" type="number" [(ngModel)]="newItem.itemBpm" placeholder="BPM">
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="form-group">
+        <button class="btn btn-crimson ml-4" (click)="onSubmit()"> Create List </button>
+      </div>
+    </div>
+  </div>
 </div>
-  
+<div class="d-block d-lg-none">
+  <div class="form-group">
+    <label class="text-white">Title</label>
+    <input class="form-control" type="text" [(ngModel)]="newItem.itemTitle">
+  </div>
+  <div class="form-group">
+    <label class="text-white">Seconds</label>
+    <input class="form-control" type="number" [(ngModel)]="newItem.itemTime" placeholder="Seconds">
+  </div>
+  <div class="form-group">
+    <label class="text-white">BPM</label>
+    <input class="form-control" type="number" [(ngModel)]="newItem.itemBpm" placeholder="BPM">
+  </div>
+  <div class="form-group">
+      <button class="btn btn-crimson" (click)="onSubmit()"> Create List </button>
+  </div>
+</div>
