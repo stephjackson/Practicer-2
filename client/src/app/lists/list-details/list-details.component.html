@@ -1,12 +1,10 @@
-<div class="col-12">
-  <h1 class="text-white"> Items on this list. </h1>
-  <table class="table">
+ <table class="table mt-3">
     <thead>
       <tr>
-        <th class="text-white">Title</th>
-        <th class="text-white">Time</th>
-        <th class="text-white">BPM</th>
-        <th class="text-white">Links</th>
+        <th class="text-white w-60">Title</th>
+        <th class="text-white w-10">Time</th>
+        <th class="text-white w-10">BPM</th>
+        <th class="text-white w-20">Links</th>
       </tr>
     </thead>
     <tbody>
@@ -15,7 +13,7 @@
         <td class="text-white align-middle"> {{ item.time }} </td>
         <td class="text-white align-middle"> {{ item.bpm }} </td>
         <td class="text-white align-middle">
-          <div class="row">
+          <div class="row d-lg-none d-block">
             <div class="col-lg-6 col-12">
               <a class="btn btn-crimson btn-block" [routerLink]="['/items', item._id]">Details</a>
             </div>
@@ -23,15 +21,16 @@
               <button class="btn btn-crimson btn-block" (click)="removeItemFromList(listId, item._id)">Remove</button> 
             </div>
           </div>
+          <div class="row d-none d-lg-block">
+            <div class="btn-toolbar">
+              <div class="btn-group">
+                <a class="btn btn-crimson" [routerLink]="['/items', item._id]">Details</a>
+                <button class="btn btn-crimson" (click)="removeItemFromList(listId, item._id)">Remove</button> 
+              </div>
+            </div>
+          </div>
         </td>    
       </tr>
     </tbody>
   </table>
-    <div *ngFor="let item of items.items">
-      <h3> {{ item.title }} </h3>
-      <h3> {{ item.time }} seconds </h3>
-      <h3> {{ item.bpm }} bpm </h3>
-    </div>
-  <hr>
-  <app-unused-items></app-unused-items>
-</div>
+<app-unused-items [listId]="listId"></app-unused-items>

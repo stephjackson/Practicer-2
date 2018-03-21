@@ -8,6 +8,7 @@ import { ListService } from "../list.service";
 })
 export class YourlistsComponent implements OnInit {
   lists;
+  showDetails = true;
 
   constructor(private listService: ListService) {}
 
@@ -24,4 +25,12 @@ export class YourlistsComponent implements OnInit {
     this.listService.deleteList(id);
     location.reload();
   }
+
+  showListDetails() {
+    if (this.showDetails === false) {
+        this.showDetails = true;
+    } else {
+        this.showDetails = false;
+    }
+}
 }

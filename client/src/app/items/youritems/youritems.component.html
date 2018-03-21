@@ -1,10 +1,36 @@
-<div class="col-md-8 col-md-offset-2">
-  <h1> Your List Items </h1>
-    <div>
-      <div *ngFor="let item of items">
-        <h3> {{ item.title }} </h3>
-        <a [routerLink]="[item._id]">View Details</a>
-        <button (click)="deleteItem(item._id)">Delete Item</button>
-      </div>
-    </div>
-</div>
+<h1 class="text-white">Practice Exercises</h1>
+<table class="table mt-3">
+    <thead>
+      <tr>
+        <th class="text-white w-60">Title</th>
+        <th class="text-white w-10">Time</th>
+        <th class="text-white w-10">BPM</th>
+        <th class="text-white w-20">Links</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <th class="text-white align-middle" scope=row>{{ item.title }}</th>
+        <td class="text-white align-middle"> {{ item.time }} </td>
+        <td class="text-white align-middle"> {{ item.bpm }} </td>
+        <td class="text-white align-middle">
+          <div class="row d-lg-none d-block">
+            <div class="col-lg-6 col-12">
+              <a class="btn btn-crimson btn-block" [routerLink]="['/items', item._id]">Details</a>
+            </div>
+            <div class="col-lg-6 col-12">
+              <button class="btn btn-crimson btn-block" (click)="deleteItem(item._id)">Remove</button> 
+            </div>
+          </div>
+          <div class="row d-none d-lg-block">
+            <div class="btn-toolbar">
+              <div class="btn-group">
+                <a class="btn btn-crimson" [routerLink]="['/items', item._id]">Details</a>
+                <button class="btn btn-crimson" (click)="deleteItem(item._id)">Delete</button> 
+              </div>
+            </div>
+          </div>
+        </td>    
+      </tr>
+    </tbody>
+  </table>

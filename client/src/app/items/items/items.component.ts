@@ -1,16 +1,8 @@
 import { Component } from "@angular/core";
 
 @Component({
-    selector: 'app-messages',
-    template: `
-        <div class="row">
-            <app-item-form></app-item-form>
-        </div>
-        <hr>
-        <div class="row">
-            <app-youritems></app-youritems>
-        </div>
-    `
+    selector: 'app-items',
+    templateUrl: 'items.component.html'
 })
 export class ItemsComponent {
 

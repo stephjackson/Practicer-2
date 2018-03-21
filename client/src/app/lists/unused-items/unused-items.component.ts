@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { ListService } from '../list.service';
 
@@ -9,20 +9,18 @@ import { ListService } from '../list.service';
 })
 export class UnusedItemsComponent implements OnInit {
   items;
-  listId;
+  @Input() listId;
 
   constructor(private listService: ListService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.listService.getItemsNotInList(params['id'])
-      .subscribe(
-        (res) => {
-          this.listId = params['id'];
-          this.items = res.obj;
-        },
-        (err) => console.error(err))
-      })
+    this.listService.getItemsNotInList(this.listId)
+    .subscribe(
+      (res) => {
+        this.listId = this.listId;
+        this.items = res.obj;
+      },
+      (err) => console.error(err))
   }
 
   addItemToList(listid, itemid) {

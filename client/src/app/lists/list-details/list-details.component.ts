@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { ListService } from '../list.service';
 
@@ -8,22 +8,18 @@ import { ListService } from '../list.service';
   styleUrls: ['./list-details.component.css']
 })
 export class ListDetailsComponent implements OnInit {
-  listId;
+  @Input() listId;
   items;
 
   constructor(private listService: ListService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.listService.getItemsInList(params['id'])
+      this.listService.getItemsInList(this.listId)
       .subscribe(
-        (res) => {
-          this.listId = params['id'];
-          this.items = res.obj;
-        },
-        (err) => console.error(err))
-      })
-  }
+        (res) => {this.items = res.obj},
+        (err) => console.error(err)
+      )
+    }
 
   removeItemFromList(listid, itemid) {
     this.listService.removeItemFromList(listid, itemid);
