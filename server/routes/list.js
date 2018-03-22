@@ -56,7 +56,7 @@ router.get('/:listid', function (req, res, next) {
 
 router.get('/:listid/excludes', function (req, res, next) {
   var decoded = jwt.decode(req.query.token);
-  Item.find({ lists: { $ne: req.params.listid } }, (err, item) => {
+  Item.find({ $and: [{ lists: { $ne: req.params.listid } }, { user: decoded.user._id }] }, (err, item) => {
     if (err) {
       return res.status(500).json({
         title: 'An error occurred',

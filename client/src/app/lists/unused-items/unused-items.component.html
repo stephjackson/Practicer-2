@@ -16,10 +16,10 @@
           <td class="text-white align-middle">
             <div class="row d-lg-none d-block">
               <div class="col-lg-6 col-12">
-                <a class="btn btn-crimson btn-block" [routerLink]="['/items', item._id]">Details</a>
-              </div>
-              <div class="col-lg-6 col-12">
-                <button class="btn btn-crimson btn-block" (click)="addItemToList(listId, item._id)">Add</button> 
+                <div class="btn-group-vertical">
+                  <a class="btn btn-crimson btn-block" [routerLink]="['/items', item._id]">Details</a>
+                  <button class="btn btn-crimson btn-block" (click)="addItemToList(listId, item._id)">Add</button> 
+                </div>
               </div>
             </div>
             <div class="row d-none d-lg-block">

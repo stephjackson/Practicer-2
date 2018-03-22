@@ -82,14 +82,14 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ListService {
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = 'http://localhost:3000/';
   constructor(private http: Http) { }
 
   getLists() {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    return this.http.get(`${this.BASE_URL}/list` + token)
+    return this.http.get(`${this.BASE_URL}list` + token)
     .map((res) => res.json());
   }
 
@@ -97,7 +97,7 @@ export class ListService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    this.http.post(`${this.BASE_URL}/list` + token, list)
+    this.http.post(`${this.BASE_URL}list` + token, list)
     .subscribe(res => res.json())
   }
 
@@ -105,7 +105,7 @@ export class ListService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    return this.http.get(`${this.BASE_URL}/list/${id}` + token)
+    return this.http.get(`${this.BASE_URL}list/${id}` + token)
     .map((res) => res.json())
   }
 
@@ -113,7 +113,7 @@ export class ListService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    return this.http.get(`${this.BASE_URL}/list/${id}/excludes` + token)
+    return this.http.get(`${this.BASE_URL}list/${id}/excludes` + token)
     .map((res) => res.json())
   }
 
@@ -121,7 +121,7 @@ export class ListService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    this.http.patch(`${this.BASE_URL}/item/add/${listid}/${itemid}` + token, {})
+    this.http.patch(`${this.BASE_URL}item/add/${listid}/${itemid}` + token, {})
     .subscribe(res => res.json())
   }
 
@@ -129,7 +129,7 @@ export class ListService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    this.http.patch(`${this.BASE_URL}/item/remove/${listid}/${itemid}` + token, {})
+    this.http.patch(`${this.BASE_URL}item/remove/${listid}/${itemid}` + token, {})
     .subscribe(res => res.json())
   }
 
@@ -137,7 +137,7 @@ export class ListService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    this.http.delete(`${this.BASE_URL}/list/${id}` + token)
+    this.http.delete(`${this.BASE_URL}list/${id}` + token)
     .subscribe(res => res.json())
   }
 
@@ -145,7 +145,7 @@ export class ListService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    this.http.put(`${this.BASE_URL}/item/${id}/track/${completed}/${bpm}` + token, {})
+    this.http.put(`${this.BASE_URL}item/${id}/track/${completed}/${bpm}` + token, {})
     .subscribe(res => res.json())
   }
 }

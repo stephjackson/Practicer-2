@@ -4,14 +4,14 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ItemService {
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = 'http://localhost:3000/';
   constructor(private http: Http) { }
 
   getItems() {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    return this.http.get(`${this.BASE_URL}/item` + token)
+    return this.http.get(`${this.BASE_URL}item` + token)
     .map((res) => res.json());
   }
 
@@ -19,7 +19,7 @@ export class ItemService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    return this.http.get(`${this.BASE_URL}/item/${id}/` + token)
+    return this.http.get(`${this.BASE_URL}item/${id}/` + token)
     .map((res) => res.json())
   }
 
@@ -27,7 +27,7 @@ export class ItemService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    this.http.post(`${this.BASE_URL}/item` + token, item)
+    this.http.post(`${this.BASE_URL}item` + token, item)
     .subscribe(res => res.json())
   }
 
@@ -35,7 +35,7 @@ export class ItemService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    return this.http.get(`${this.BASE_URL}/list/${id}/excludes` + token)
+    return this.http.get(`${this.BASE_URL}list/${id}/excludes` + token)
     .map((res) => res.json())
   }
 
@@ -43,7 +43,7 @@ export class ItemService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    this.http.delete(`${this.BASE_URL}/item/${id}` + token)
+    this.http.delete(`${this.BASE_URL}item/${id}` + token)
     .subscribe(res => res.json())
   }
 }
