@@ -7,6 +7,8 @@ export class ItemService {
   BASE_URL: string = 'http://localhost:3000/';
   constructor(private http: Http) { }
 
+  //The token is passed in as a URL parameter and decoded server-side by express
+  //middleware.
   getItems() {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')

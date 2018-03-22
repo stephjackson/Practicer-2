@@ -1,3 +1,4 @@
+//Unused, stuck with a simpler implementation for server communication.
 export class List {
   title: string;
   listId?: string;

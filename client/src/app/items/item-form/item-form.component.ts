@@ -14,7 +14,6 @@ export class ItemFormComponent implements OnInit {
   constructor(private itemService: ItemService, private router: Router) {}
 
   onSubmit() {
-    // Create
     this.itemService.createItem(this.newItem)
     location.reload()
   }

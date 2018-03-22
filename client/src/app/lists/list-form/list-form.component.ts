@@ -11,11 +11,10 @@ import { ListService } from "../list.service";
 export class ListFormComponent implements OnInit {
   newList: any;
 
-  constructor(private messageService: ListService, private router: Router) {}
+  constructor(private listService: ListService, private router: Router) {}
 
   onSubmit() {
-    // Create
-    this.messageService.createList(this.newList)
+    this.listService.createList(this.newList)
     this.router.navigate(['/lists'])
     location.reload()
   }

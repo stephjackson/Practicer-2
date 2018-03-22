@@ -12,6 +12,9 @@ export class SignupComponent implements OnInit {
 
   constructor(private authService: AuthService) {}
 
+  //I used a model for the user auth, but didn't for the items/lists.
+  //The auth implementation is newer than the other components, so it's a bit more
+  //sophisticated.
   onSubmit() {
     const user = new User(
       this.myForm.value.username,

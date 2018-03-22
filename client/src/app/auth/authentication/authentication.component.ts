@@ -8,6 +8,7 @@ import { AuthService } from "../auth.service";
 export class AuthenticationComponent {
     constructor(private authService: AuthService) {}
 
+    //Returns if localstorage is holding a login token, used for auth.
     isLoggedIn() {
         return this.authService.isLoggedIn();
     }

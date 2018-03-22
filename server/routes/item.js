@@ -7,6 +7,7 @@ var User = require('../models/user');
 var List = require('../models/list');
 var Item = require('../models/item')
 
+//Middleware for jsonwebtoken auth. Verifies the user token sent in as a param.
 router.use('/', function (req, res, next) {
   jwt.verify(req.query.token, 'secret', function (err, decoded) {
     if (err) {
@@ -19,6 +20,7 @@ router.use('/', function (req, res, next) {
   })
 });
 
+//Every other route uses said middleware, for the most part.
 router.get('/', function (req, res, next) {
   var decoded = jwt.decode(req.query.token);
   Item.find({ user: decoded.user._id })
@@ -37,6 +39,7 @@ router.get('/', function (req, res, next) {
     });
 });
 
+//We look up a user first to ensure we can associate a created list item with a user.
 router.post('/', function (req, res, next) {
   var decoded = jwt.decode(req.query.token);
   User.findById(decoded.user._id, function (err, user) {
@@ -81,6 +84,7 @@ router.get('/:itemid', (req, res, next) => {
   })
 })
 
+//Just realized I never actually used the edit routes, but they're there.
 router.patch('/:id', function (req, res, next) {
   var decoded = jwt.decode(req.query.token);
   Item.findById(req.params.id, (err, item) => {
@@ -123,6 +127,7 @@ router.patch('/:id', function (req, res, next) {
   });
 });
 
+//Adds a reference to an item id to a list and vice versa.  Used for populating lists.
 router.patch('/add/:listid/:itemid', (req, res, next) => {
   var decoded = jwt.decode(req.query.token);
 
@@ -142,6 +147,7 @@ router.patch('/add/:listid/:itemid', (req, res, next) => {
   })
 })
 
+//Removes a reference to a list id from an item and vice versa. Used for populating lists.
 router.patch('/remove/:listid/:itemid', (req, res, next) => {
   var decoded = jwt.decode(req.query.token);
 
@@ -189,6 +195,7 @@ router.delete('/:id', (req, res, next) => {
           error: err
         });
       }
+      //We have to search for lists including the item to make sure they lose the item id.
       List.updateMany({ items: req.params.id }, { '$pull': { 'items': req.params.id } }, err => {
         if (err) { res.status(500).json({ message: 'Error deleting list item from list db array' }) };
         res.json({
@@ -199,6 +206,8 @@ router.delete('/:id', (req, res, next) => {
   });
 });
 
+//Stat tracking route. Right now uses default values server-side, but this could
+//easily be configurable. Bumps item BPM by one on a successful 
 router.put('/:itemid/track/:completed/:itemBpm', (req, res, next) => {
   var decoded = jwt.decode(req.query.token);
 

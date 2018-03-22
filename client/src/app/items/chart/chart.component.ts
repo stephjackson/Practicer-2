@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+//The component for the stat tracking. Uses a package called ng2-charts,
+//which implements charts.js as an Angular2 module.
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
@@ -45,7 +47,11 @@ export class ChartComponent implements OnInit {
   public lineChartLegend:boolean = true;
   public lineChartType:string = 'line';
  
-  public randomize():void {
+  //ng2-charts doesn't like assigning chart variables on the initial page load.
+  //The button is a silly workaround for that - there was likely a clever async
+  //solution to wait for everything to be assigned before drawing the chart,
+  //but it felt past the scope of "learn angular and make a thing in two weeks".
+  public showChart():void {
     this.drawChart = true;
   }
 

@@ -9,7 +9,7 @@
         <td class="text-white" *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
       </tr>
     </table>
-    <button class="btn btn-crimson" (click)="randomize()">Show Chart</button>
+    <button class="btn btn-crimson" (click)="showChart()">Show Chart</button>
   </div>
   <div *ngIf="drawChart" class="col-md-6">
       <h1 class="text-white">BPM Chart</h1>

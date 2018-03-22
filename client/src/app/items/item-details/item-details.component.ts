@@ -16,6 +16,10 @@ export class ItemDetailsComponent implements OnInit {
 
   constructor(private itemService: ItemService, private route: ActivatedRoute) {}
 
+  //A cute solution for the ngcharts issue - we create an array with the chart data
+  //up here, then pass it to the child component. This component is probably
+  //redundant, but was a remnant of an older implementation and pretty much exists
+  //to hold a route and pass data to the chart now.
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.itemService.getItem(params['id'])

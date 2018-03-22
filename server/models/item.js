@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+//I think the models are mostly pretty self-explanatory, but I tried to make everything
+//possible reference everything else as an array of IDs, as that created issues
+//on the last project. Doing it this way on this project turned a couple of
+//90 minute issues into 5 minute ones.
 const ItemSchema = new Schema({
   title: {
     type: String,

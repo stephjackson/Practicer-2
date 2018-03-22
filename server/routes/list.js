@@ -6,6 +6,7 @@ var User = require('../models/user');
 var List = require('../models/list');
 var Item = require('../models/item')
 
+//Token authentication middleware.
 router.use('/', function (req, res, next) {
   jwt.verify(req.query.token, 'secret', function (err, decoded) {
     if (err) {
@@ -18,6 +19,7 @@ router.use('/', function (req, res, next) {
   })
 });
 
+//Get route for lists - uses the current user then populates their lists.
 router.get('/', function (req, res, next) {
   var decoded = jwt.decode(req.query.token);
   User.findById(decoded.user._id)
@@ -54,6 +56,7 @@ router.get('/:listid', function (req, res, next) {
     });
 });
 
+//A route that looks up items not in a given list. Used for adding items to a list.
 router.get('/:listid/excludes', function (req, res, next) {
   var decoded = jwt.decode(req.query.token);
   Item.find({ $and: [{ lists: { $ne: req.params.listid } }, { user: decoded.user._id }] }, (err, item) => {

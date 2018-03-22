@@ -1,3 +1,4 @@
+//Unused remnant of older implmentation that didn't have a chart
 import { Component, OnInit } from '@angular/core';
 
 @Component({

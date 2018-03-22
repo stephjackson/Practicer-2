@@ -8,6 +8,8 @@ import { User } from "./user.model";
 export class AuthService {
   constructor(private http: Http) {}
 
+  //These are a bit dated - I think the new HttpClientModule can handle
+  //the body and headers in a nicer way for you.
   signup(user: User) {
       const body = JSON.stringify(user);
       const headers = new Headers({'Content-Type': 'application/json'});
@@ -24,10 +26,12 @@ export class AuthService {
           .catch((error: Response) => Observable.throw(error.json()));
   }
 
+  //Nice thing about using a token locally is logging out just entails deleting the token.
   logout() {
       localStorage.clear();
   }
 
+  //And checking login status is just a simple comparison.
   isLoggedIn() {
       return localStorage.getItem('token') !== null;
   }

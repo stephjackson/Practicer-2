@@ -14,6 +14,11 @@ export class SigninComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  // Sets the token in localstorage on signin and resets form.
+  // The token implementation is somewhat barebones - the user object needs
+  // a "last logged in" date that's compared with the current date
+  // to check if a timestamp is valid (which creates weird behavior when
+  // reopening the page) but it's functionalish.
   onSubmit() {
     const user = new User(this.myForm.value.username, this.myForm.value.password);
     this.authService.signin(user)
