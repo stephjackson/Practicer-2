@@ -8,7 +8,6 @@ export class ItemService {
   constructor(private http: Http) { }
 
   getItems() {
-    console.log('hi');
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';

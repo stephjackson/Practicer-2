@@ -11,6 +11,8 @@ export class UnusedItemsComponent implements OnInit {
   items;
   @Input() listId;
 
+  showSelected: boolean;
+
   constructor(private listService: ListService, private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -18,6 +20,7 @@ export class UnusedItemsComponent implements OnInit {
     .subscribe(
       (res) => {
         this.listId = this.listId;
+        this.showSelected = false
         this.items = res.obj;
       },
       (err) => console.error(err))
@@ -27,4 +30,12 @@ export class UnusedItemsComponent implements OnInit {
     this.listService.addItemToList(listid, itemid);
     location.reload();
   }
+
+  ShowForm() {
+    if (this.showSelected === false) {
+        this.showSelected = true;
+    } else {
+        this.showSelected = false;
+    }
+}
 }

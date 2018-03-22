@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { ItemService } from '../item.service';
 
@@ -10,6 +10,9 @@ import { ItemService } from '../item.service';
 export class ItemDetailsComponent implements OnInit {
   itemId;
   item;
+  bpmStat: Array<any> = [];
+  bpmDate: Array<any> = [];
+  emptyArray: Array<any> = [];
 
   constructor(private itemService: ItemService, private route: ActivatedRoute) {}
 
@@ -20,6 +23,12 @@ export class ItemDetailsComponent implements OnInit {
         (res) => {
           this.itemId = params['id'];
           this.item = res.obj;
+          console.log(this.item);
+          for (var i = 0; i < this.item.stats.length; i++) {
+            this.bpmStat.push(this.item.stats[i].bpm);
+            this.bpmDate.push(this.item.stats[i].date);
+            this.emptyArray.push('');
+          }
         },
         (err) => console.error(err))
       })

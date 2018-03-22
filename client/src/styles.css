@@ -20,3 +20,7 @@ body {
 .w-20 {
   width: 20%;
 }
+
+a:hover {
+  color: palevioletred;
+}

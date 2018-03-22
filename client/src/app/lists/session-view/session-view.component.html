@@ -1,9 +1,19 @@
-<div class="col-md-8 col-md-offset-2">
-  <div class="row" *ngFor="let item of items.items">
-    <h3>{{ item.title }}</h3>
-    <h3>{{ item.bpm }}</h3>
-    <h3>{{ item.seconds }}</h3>
-    <button (click)="statTrack(item._id, 1, item.bpm)">I successfully played this!</button>
-    <button (click)="statTrack(item._id, 0, item.bpm)">No luck! Keep at it!</button>
+<h1 class="text-white"> {{ items.title}} </h1>
+<div class="row pt-3" *ngFor="let item of items.items">
+  <div class="col-lg-7 col-12">
+    <h3 class="text-white">{{ item.title }}</h3>
+  </div>
+  <div class="col-lg-1 col-3">
+    <h3 class="text-white">{{ item.bpm }}</h3>
+  </div>
+  <div class="col-lg-1 col-3">
+    <h3 class="text-white">{{ item.time }}</h3>
+  </div>
+  <div class="col-lg-3 col-6">
+    <div class="btn-group">
+      <button class='btn btn-crimson' (click)="statTrack(item._id, 1, item.bpm)">Nailed it!</button>
+      <button class='btn btn-crimson' (click)="statTrack(item._id, 0, item.bpm)">No luck!</button>
+    </div>
   </div>
 </div>
+<a class="btn btn-crimson mt-4" [routerLink]="['/lists']">Done</a>

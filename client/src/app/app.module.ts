@@ -24,6 +24,8 @@ import { UnusedItemsComponent } from './lists/unused-items/unused-items.componen
 import { ItemDetailsComponent } from './items/item-details/item-details.component';
 import { ItemStatsComponent } from './items/item-stats/item-stats.component';
 import { SessionViewComponent } from './lists/session-view/session-view.component'
+import { ChartsModule } from 'ng2-charts';
+import { ChartComponent } from './items/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { SessionViewComponent } from './lists/session-view/session-view.componen
     UnusedItemsComponent,
     ItemDetailsComponent,
     ItemStatsComponent,
-    SessionViewComponent
+    SessionViewComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { SessionViewComponent } from './lists/session-view/session-view.componen
     routing,
     RouterModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    ChartsModule
   ],
   providers: [AuthService, ListService, ItemService],
   bootstrap: [AppComponent]
