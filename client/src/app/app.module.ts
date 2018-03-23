@@ -26,7 +26,8 @@ import { ItemStatsComponent } from './items/item-stats/item-stats.component';
 import { SessionViewComponent } from './lists/session-view/session-view.component'
 import { ChartsModule } from 'ng2-charts';
 import { ChartComponent } from './items/chart/chart.component';
-// import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AboutComponent } from './general/about/about.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ChartComponent } from './items/chart/chart.component';
     ItemDetailsComponent,
     ItemStatsComponent,
     SessionViewComponent,
-    ChartComponent
+    ChartComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,7 @@ import { ChartComponent } from './items/chart/chart.component';
     ChartsModule
   ],
   providers: [AuthService, ListService, ItemService
-   // , {provide: LocationStrategy, useClass: HashLocationStrategy}
+   , {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
