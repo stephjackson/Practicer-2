@@ -28,6 +28,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ChartComponent } from './items/chart/chart.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AboutComponent } from './general/about/about.component';
+import { LandingComponent } from './general/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AboutComponent } from './general/about/about.component';
     ItemStatsComponent,
     SessionViewComponent,
     ChartComponent,
-    AboutComponent
+    AboutComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

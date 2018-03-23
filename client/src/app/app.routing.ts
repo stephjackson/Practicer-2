@@ -9,9 +9,10 @@ import { LIST_ROUTES } from './lists/list.routes';
 import { ItemDetailsComponent } from "./items/item-details/item-details.component";
 import { SessionViewComponent } from "./lists/session-view/session-view.component";
 import { AboutComponent } from "./general/about/about.component";
+import { LandingComponent } from "./general/landing/landing.component";
 
 const APP_ROUTES: Routes = [
-    { path: '', redirectTo: '/auth/signin', pathMatch: 'full' },
+    { path: '', component: LandingComponent },
     { path: 'lists', component: ListsComponent },
     { path: 'about', component: AboutComponent },
     { path: 'lists/:id', component: ListDetailsComponent },

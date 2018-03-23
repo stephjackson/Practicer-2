@@ -1,5 +1,30 @@
-<div class="row offset-3 d-none d-lg-block">
-  <form class="col-8" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<div class="row">
+  <form class="col-12" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label class="text-white" for="username">Username</label>
+      <input
+        type="username"
+        id="username"
+        class="form-control"
+        formControlName="username">
+    </div>
+    <div class="form-group">
+      <label class="text-white" for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        formControlName="password">
+    </div>
+    <button
+      class="btn btn-crimson"
+      type="submit"
+      [disabled]="!myForm.valid">Sign Up</button>
+      <a class="text-white ml-2" [routerLink]="['/auth', 'signin']">Already a member? Sign in.</a>
+  </form>
+</div>
+<!-- <div class="row offset-1 d-lg-none d-block">
+  <form class="col-12" [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label class="text-white" for="username">Username</label>
       <input
@@ -21,28 +46,4 @@
       type="submit"
       [disabled]="!myForm.valid">Sign Up</button>
   </form>
-</div>
-<div class="row offset-1 d-lg-none d-block">
-  <form class="col-10" [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label class="text-white" for="username">Username</label>
-      <input
-        type="username"
-        id="username"
-        class="form-control"
-        formControlName="username">
-    </div>
-    <div class="form-group">
-      <label class="text-white" for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        class="form-control"
-        formControlName="password">
-    </div>
-    <button
-      class="btn btn-crimson"
-      type="submit"
-      [disabled]="!myForm.valid">Sign Up</button>
-  </form>
-</div>
+</div> -->
