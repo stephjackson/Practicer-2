@@ -7,7 +7,7 @@ var List = require('../models/list');
 var Item = require('../models/item')
 
 //Token authentication middleware.
-router.use('/', function (req, res, next) {
+router.use('/', (req, res, next) => {
   jwt.verify(req.query.token, 'secret', function (err, decoded) {
     if (err) {
       return res.status(401).json({

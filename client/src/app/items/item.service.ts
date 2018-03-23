@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ItemService {
-  BASE_URL: string = 'http://localhost:3000/';
+  BASE_URL: string = '/';
   constructor(private http: Http) { }
 
   //The token is passed in as a URL parameter and decoded server-side by express

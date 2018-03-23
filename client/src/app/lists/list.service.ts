@@ -7,7 +7,7 @@ export class ListService {
   //The BASE_URL thing came from Ironhack, but breaks on Heroku.
   //Hilariously, if you leave this in, Heroku will communicate with a local
   //Express server on port 3000. It's fixed on deployment by changing the url to '/'.
-  BASE_URL: string = 'http://localhost:3000/';
+  BASE_URL: string = '/';
   constructor(private http: Http) { }
 
   getLists() {
