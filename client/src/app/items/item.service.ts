@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/map';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ItemService {
-  BASE_URL: string = '/';
   constructor(private http: Http) { }
 
   //The token is passed in as a URL parameter and decoded server-side by express
@@ -13,7 +13,7 @@ export class ItemService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    return this.http.get(`${this.BASE_URL}item` + token)
+    return this.http.get(`${environment.BASE_URL}item` + token)
     .map((res) => res.json());
   }
 
@@ -21,7 +21,7 @@ export class ItemService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    return this.http.get(`${this.BASE_URL}item/${id}/` + token)
+    return this.http.get(`${environment.BASE_URL}item/${id}/` + token)
     .map((res) => res.json())
   }
 
@@ -29,7 +29,7 @@ export class ItemService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    this.http.post(`${this.BASE_URL}item` + token, item)
+    this.http.post(`${environment.BASE_URL}item` + token, item)
     .subscribe(res => res.json())
   }
 
@@ -37,7 +37,7 @@ export class ItemService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    return this.http.get(`${this.BASE_URL}list/${id}/excludes` + token)
+    return this.http.get(`${environment.BASE_URL}list/${id}/excludes` + token)
     .map((res) => res.json())
   }
 
@@ -45,7 +45,7 @@ export class ItemService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    this.http.delete(`${this.BASE_URL}item/${id}` + token)
+    this.http.delete(`${environment.BASE_URL}item/${id}` + token)
     .subscribe(res => res.json())
   }
 }
