@@ -1,5 +1,5 @@
-<div class="row offset-3 d-none d-lg-block">
-    <form class="col-8" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<div class="row offset-lg-3 offset-1">
+    <form class="col-lg-8 col-10" [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label class="text-white" for="username">Username</label>
         <input
@@ -10,35 +10,14 @@
       </div>
       <div class="form-group">
         <label class="text-white" for="password">Password</label>
+        <input type="text" autocomplete="username" [hidden]="hide">
         <input
           type="password"
           id="password"
           class="form-control"
-          formControlName="password">
-      </div>
-      <button
-        class="btn btn-crimson"
-        type="submit"
-        [disabled]="!myForm.valid">Sign In</button>
-    </form>
-  </div>
-  <div class="row offset-1 d-lg-none d-block">
-    <form class="col-10" [formGroup]="myForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label class="text-white" for="username">Username</label>
-        <input
-          type="username"
-          id="username"
-          class="form-control"
-          formControlName="username">
-      </div>
-      <div class="form-group">
-        <label class="text-white" for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          formControlName="password">
+          formControlName="password"
+          autocomplete="new-password"
+          >
       </div>
       <button
         class="btn btn-crimson"

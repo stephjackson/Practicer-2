@@ -9,6 +9,7 @@ import { User } from "../user.model";
 })
 export class SignupComponent implements OnInit {
   myForm: FormGroup;
+  hide: boolean = true;
 
   constructor(private authService: AuthService) {}
 

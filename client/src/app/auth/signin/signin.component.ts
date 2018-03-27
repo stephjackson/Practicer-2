@@ -11,6 +11,7 @@ import { AuthService } from "../auth.service";
 })
 export class SigninComponent {
   myForm: FormGroup;
+  hide: boolean = true;
 
   constructor(private authService: AuthService, private router: Router) {}
 
