@@ -19,7 +19,7 @@ export class SessionViewComponent implements OnInit {
       .subscribe(
         (res) => {
           this.listId = params['id'];
-          this.items = res.obj;
+          this.items = res.obj.items;
         },
         (err) => console.error(err))
       })

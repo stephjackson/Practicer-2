@@ -16,7 +16,7 @@ export class ListDetailsComponent implements OnInit {
   ngOnInit() {
       this.listService.getItemsInList(this.listId)
       .subscribe(
-        (res) => {this.items = res.obj},
+        (res) => {this.items = res.obj.items},
         (err) => console.error(err)
       )
     }

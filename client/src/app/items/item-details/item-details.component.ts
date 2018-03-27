@@ -27,7 +27,6 @@ export class ItemDetailsComponent implements OnInit {
         (res) => {
           this.itemId = params['id'];
           this.item = res.obj;
-          console.log(this.item);
           for (var i = 0; i < this.item.stats.length; i++) {
             this.bpmStat.push(this.item.stats[i].bpm);
             this.bpmDate.push(this.item.stats[i].date);
